@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="60260ae3b7994d97a3365467f9ef49ac" Name="Diagram1" ZoomLevel="108">
+        <EntityTypeShape EntityType="BBDDModel.categorias" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BBDDModel.codigos" Width="1.5" PointX="0.625" PointY="3.125" />
+        <EntityTypeShape EntityType="BBDDModel.departamentos" Width="1.5" PointX="2.375" PointY="3.125" />
+        <EntityTypeShape EntityType="BBDDModel.codigo_categoria" Width="1.5" PointX="2.5" PointY="0.75" />
+        <EntityTypeShape EntityType="BBDDModel.carpetas" Width="1.5" PointX="4.25" PointY="3.75" />
+        <EntityTypeShape EntityType="BBDDModel.notas" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="BBDDModel.usuarios" Width="1.5" PointX="4.25" PointY="0.75" />
+        <EntityTypeShape EntityType="BBDDModel.ultimo_inicio" Width="1.5" PointX="6.5" PointY="3.625" />
+        <EntityTypeShape EntityType="BBDDModel.carpetas_contrasenas" Width="1.5" PointX="8.25" PointY="3.625" />
+        <EntityTypeShape EntityType="BBDDModel.notas_compartidas" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BBDDModel.contrasenas" Width="1.5" PointX="3.375" PointY="6.75" />
+        <EntityTypeShape EntityType="BBDDModel.Grupo" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="BBDDModel.GrupoUsuario" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="BBDDModel.PasswordDepartamento" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BBDDModel.PasswordGrupo" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BBDDModel.PasswordUsuario" Width="1.5" PointX="5.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BBDDModel.HerramientaExterna" Width="1.5" PointX="9.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

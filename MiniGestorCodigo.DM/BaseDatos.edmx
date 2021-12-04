@@ -1,0 +1,607 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BBDDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="carpetas">
+          <Key>
+            <PropertyRef Name="idCarpeta" />
+          </Key>
+          <Property Name="idCarpeta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreCarpeta" Type="varchar" MaxLength="50" />
+          <Property Name="fk_IdCarpetaPadre" Type="int" />
+          <Property Name="fk_IdUsuario" Type="int" />
+          <Property Name="fechaModificacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="carpetas-contrasenas">
+          <Key>
+            <PropertyRef Name="idCarpeta" />
+          </Key>
+          <Property Name="idCarpeta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="fk_idCarpetaPadre" Type="int" />
+          <Property Name="fk_idUsuario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="categorias">
+          <Key>
+            <PropertyRef Name="idCategoria" />
+          </Key>
+          <Property Name="idCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreCategoria" Type="varchar" MaxLength="50" />
+          <Property Name="descripcionCategoria" Type="text" />
+          <Property Name="fechaModificacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="codigo-categoria">
+          <Key>
+            <PropertyRef Name="idCodigoCategoria" />
+          </Key>
+          <Property Name="idCodigoCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fk_idCodigo" Type="int" />
+          <Property Name="fk_idCategoria" Type="int" />
+        </EntityType>
+        <EntityType Name="codigos">
+          <Key>
+            <PropertyRef Name="idCodigo" />
+          </Key>
+          <Property Name="idCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreCodigo" Type="varchar" MaxLength="150" />
+          <Property Name="descripcion" Type="text" />
+          <Property Name="codigo" Type="text" Nullable="false" />
+          <Property Name="fk_IdAutor" Type="int" Nullable="false" />
+          <Property Name="fk_Idcarpeta" Type="int" />
+          <Property Name="fechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="fk_IdUsuarioUltimaModificacion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contrasenas">
+          <Key>
+            <PropertyRef Name="idContrasena" />
+          </Key>
+          <Property Name="idContrasena" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="contrasena" Type="varchar(max)" Nullable="false" />
+          <Property Name="fk_idUsuario" Type="int" Nullable="false" />
+          <Property Name="fk_idCarpeta" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="150" />
+          <Property Name="descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="Favorita" Type="bit" />
+        </EntityType>
+        <EntityType Name="departamentos">
+          <Key>
+            <PropertyRef Name="idDepartamento" />
+          </Key>
+          <Property Name="idDepartamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreDepartamento" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Grupo">
+          <Key>
+            <PropertyRef Name="idGrupo" />
+          </Key>
+          <Property Name="idGrupo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreGrupo" Type="varchar(max)" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="fechaModificacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GrupoUsuario">
+          <Key>
+            <PropertyRef Name="idGrupoUsuario" />
+          </Key>
+          <Property Name="idGrupoUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idGrupo" Type="int" />
+          <Property Name="idUsuario" Type="int" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="fechaModificacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="HerramientaExterna">
+          <Key>
+            <PropertyRef Name="idHerramientaExterna" />
+          </Key>
+          <Property Name="idHerramientaExterna" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HerramientaExterna" Type="varchar(max)" Nullable="false" />
+          <Property Name="fk_idUsuario" Type="int" Nullable="false" />
+          <Property Name="UsuarioOrdenador" Type="varchar(max)" />
+          <Property Name="PathHerramienta" Type="varchar(max)" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="notas">
+          <Key>
+            <PropertyRef Name="idNota" />
+          </Key>
+          <Property Name="idNota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fk_idUsuario" Type="int" Nullable="false" />
+          <Property Name="titulo" Type="varchar" MaxLength="80" />
+          <Property Name="descripcion" Type="text" />
+          <Property Name="fechaModificacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="notas-compartidas">
+          <Key>
+            <PropertyRef Name="idNotaCompartida" />
+          </Key>
+          <Property Name="idNotaCompartida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fk_idNota" Type="int" Nullable="false" />
+          <Property Name="fk_idUsuario" Type="int" Nullable="false" />
+          <Property Name="fk_idPropietario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PasswordDepartamento">
+          <Key>
+            <PropertyRef Name="idPasswordDepartamento" />
+          </Key>
+          <Property Name="idPasswordDepartamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idPassword" Type="int" />
+          <Property Name="idDepartamento" Type="int" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="fechaModificacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PasswordGrupo">
+          <Key>
+            <PropertyRef Name="idPasswordGrupo" />
+          </Key>
+          <Property Name="idPasswordGrupo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idPassword" Type="int" />
+          <Property Name="idGrupo" Type="int" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="fechaModificacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PasswordUsuario">
+          <Key>
+            <PropertyRef Name="idPasswordUsuario" />
+          </Key>
+          <Property Name="idPasswordUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idPassword" Type="int" />
+          <Property Name="idUsuario" Type="int" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="fechaModificacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ultimo-inicio">
+          <Key>
+            <PropertyRef Name="idOrdenador" />
+          </Key>
+          <Property Name="idOrdenador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreOrdenador" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="fk_idUsuario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="correo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fk_IdDepartamento" Type="int" Nullable="false" />
+          <Property Name="fechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="pswdCorreo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="Query_VerPasswordCompartidas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUsuarios" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="BBDDModelStoreContainer">
+          <EntitySet Name="carpetas" EntityType="Self.carpetas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="carpetas-contrasenas" EntityType="Self.carpetas-contrasenas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="categorias" EntityType="Self.categorias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="codigo-categoria" EntityType="Self.codigo-categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="codigos" EntityType="Self.codigos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contrasenas" EntityType="Self.contrasenas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="departamentos" EntityType="Self.departamentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grupo" EntityType="Self.Grupo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GrupoUsuario" EntityType="Self.GrupoUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HerramientaExterna" EntityType="Self.HerramientaExterna" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="notas" EntityType="Self.notas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="notas-compartidas" EntityType="Self.notas-compartidas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PasswordDepartamento" EntityType="Self.PasswordDepartamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PasswordGrupo" EntityType="Self.PasswordGrupo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PasswordUsuario" EntityType="Self.PasswordUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ultimo-inicio" EntityType="Self.ultimo-inicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BBDDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BBDD" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="categoriasSet" EntityType="BBDDModel.categorias" />
+          <EntitySet Name="codigosSet" EntityType="BBDDModel.codigos" />
+          <EntitySet Name="departamentosSet" EntityType="BBDDModel.departamentos" />
+          <EntitySet Name="codigo_categoria" EntityType="BBDDModel.codigo_categoria" />
+          <EntitySet Name="carpetas" EntityType="BBDDModel.carpetas" />
+          <EntitySet Name="notas" EntityType="BBDDModel.notas" />
+          <EntitySet Name="usuarios" EntityType="BBDDModel.usuarios" />
+          <EntitySet Name="ultimo_inicio" EntityType="BBDDModel.ultimo_inicio" />
+          <EntitySet Name="carpetas_contrasenas" EntityType="BBDDModel.carpetas_contrasenas" />
+          <EntitySet Name="notas_compartidas" EntityType="BBDDModel.notas_compartidas" />
+          <EntitySet Name="contrasenas" EntityType="BBDDModel.contrasenas" />
+          <EntitySet Name="Grupo" EntityType="BBDDModel.Grupo" />
+          <EntitySet Name="GrupoUsuario" EntityType="BBDDModel.GrupoUsuario" />
+          <EntitySet Name="PasswordDepartamento" EntityType="BBDDModel.PasswordDepartamento" />
+          <EntitySet Name="PasswordGrupo" EntityType="BBDDModel.PasswordGrupo" />
+          <EntitySet Name="PasswordUsuario" EntityType="BBDDModel.PasswordUsuario" />
+          <FunctionImport Name="Query_VerPasswordCompartidas" ReturnType="Collection(Int32)">
+          <Parameter Name="idUsuarios" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="HerramientaExterna" EntityType="BBDDModel.HerramientaExterna" />
+        </EntityContainer>
+        <EntityType Name="categorias">
+          <Key>
+            <PropertyRef Name="idCategoria" />
+          </Key>
+          <Property Name="idCategoria" Type="Int32" Nullable="false" />
+          <Property Name="nombreCategoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcionCategoria" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fechaModificacion" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="codigos">
+          <Key>
+            <PropertyRef Name="idCodigo" />
+          </Key>
+          <Property Name="idCodigo" Type="Int32" Nullable="false" />
+          <Property Name="nombreCodigo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="codigo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fk_IdAutor" Type="Int32" Nullable="false" />
+          <Property Name="fk_Idcarpeta" Type="Int32" />
+          <Property Name="fechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fk_IdUsuarioUltimaModificacion" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="departamentos">
+          <Key>
+            <PropertyRef Name="idDepartamento" />
+          </Key>
+          <Property Name="idDepartamento" Type="Int32" Nullable="false" />
+          <Property Name="nombreDepartamento" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="codigo_categoria">
+          <Key>
+            <PropertyRef Name="idCodigoCategoria" />
+          </Key>
+          <Property Name="idCodigoCategoria" Type="Int32" Nullable="false" />
+          <Property Name="fk_idCodigo" Type="Int32" />
+          <Property Name="fk_idCategoria" Type="Int32" />
+        </EntityType>
+        <EntityType Name="carpetas">
+          <Key>
+            <PropertyRef Name="idCarpeta" />
+          </Key>
+          <Property Name="idCarpeta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreCarpeta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fk_IdCarpetaPadre" Type="Int32" />
+          <Property Name="fk_IdUsuario" Type="Int32" />
+          <Property Name="fechaModificacion" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="notas">
+          <Key>
+            <PropertyRef Name="idNota" />
+          </Key>
+          <Property Name="idNota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fk_idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="titulo" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fechaModificacion" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="correo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fk_IdDepartamento" Type="Int32" Nullable="false" />
+          <Property Name="fechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pswdCorreo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ultimo_inicio">
+          <Key>
+            <PropertyRef Name="idOrdenador" />
+          </Key>
+          <Property Name="idOrdenador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreOrdenador" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="fk_idUsuario" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="carpetas_contrasenas">
+          <Key>
+            <PropertyRef Name="idCarpeta" />
+          </Key>
+          <Property Name="idCarpeta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fk_idCarpetaPadre" Type="Int32" />
+          <Property Name="fk_idUsuario" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="notas_compartidas">
+          <Key>
+            <PropertyRef Name="idNotaCompartida" />
+          </Key>
+          <Property Name="idNotaCompartida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fk_idNota" Type="Int32" Nullable="false" />
+          <Property Name="fk_idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="fk_idPropietario" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contrasenas">
+          <Key>
+            <PropertyRef Name="idContrasena" />
+          </Key>
+          <Property Name="idContrasena" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="contrasena" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fk_idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="fk_idCarpeta" Type="Int32" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="usuario" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Favorita" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Grupo">
+          <Key>
+            <PropertyRef Name="idGrupo" />
+          </Key>
+          <Property Name="idGrupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreGrupo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="fechaModificacion" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="GrupoUsuario">
+          <Key>
+            <PropertyRef Name="idGrupoUsuario" />
+          </Key>
+          <Property Name="idGrupoUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idGrupo" Type="Int32" />
+          <Property Name="idUsuario" Type="Int32" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="fechaModificacion" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PasswordDepartamento">
+          <Key>
+            <PropertyRef Name="idPasswordDepartamento" />
+          </Key>
+          <Property Name="idPasswordDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPassword" Type="Int32" />
+          <Property Name="idDepartamento" Type="Int32" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="fechaModificacion" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PasswordGrupo">
+          <Key>
+            <PropertyRef Name="idPasswordGrupo" />
+          </Key>
+          <Property Name="idPasswordGrupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPassword" Type="Int32" />
+          <Property Name="idGrupo" Type="Int32" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="fechaModificacion" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PasswordUsuario">
+          <Key>
+            <PropertyRef Name="idPasswordUsuario" />
+          </Key>
+          <Property Name="idPasswordUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPassword" Type="Int32" />
+          <Property Name="idUsuario" Type="Int32" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="fechaModificacion" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="HerramientaExterna">
+          <Key>
+            <PropertyRef Name="idHerramientaExterna" />
+          </Key>
+          <Property Name="idHerramientaExterna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HerramientaExterna1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fk_idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="UsuarioOrdenador" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PathHerramienta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BBDDModelStoreContainer" CdmEntityContainer="BBDD">
+          <EntitySetMapping Name="categoriasSet">
+            <EntityTypeMapping TypeName="BBDDModel.categorias">
+              <MappingFragment StoreEntitySet="categorias">
+                <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+                <ScalarProperty Name="descripcionCategoria" ColumnName="descripcionCategoria" />
+                <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="codigosSet">
+            <EntityTypeMapping TypeName="BBDDModel.codigos">
+              <MappingFragment StoreEntitySet="codigos">
+                <ScalarProperty Name="fk_IdUsuarioUltimaModificacion" ColumnName="fk_IdUsuarioUltimaModificacion" />
+                <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+                <ScalarProperty Name="fk_Idcarpeta" ColumnName="fk_Idcarpeta" />
+                <ScalarProperty Name="fk_IdAutor" ColumnName="fk_IdAutor" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombreCodigo" ColumnName="nombreCodigo" />
+                <ScalarProperty Name="idCodigo" ColumnName="idCodigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="departamentosSet">
+            <EntityTypeMapping TypeName="BBDDModel.departamentos">
+              <MappingFragment StoreEntitySet="departamentos">
+                <ScalarProperty Name="nombreDepartamento" ColumnName="nombreDepartamento" />
+                <ScalarProperty Name="idDepartamento" ColumnName="idDepartamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="codigo_categoria">
+            <EntityTypeMapping TypeName="BBDDModel.codigo_categoria">
+              <MappingFragment StoreEntitySet="codigo-categoria">
+                <ScalarProperty Name="fk_idCategoria" ColumnName="fk_idCategoria" />
+                <ScalarProperty Name="fk_idCodigo" ColumnName="fk_idCodigo" />
+                <ScalarProperty Name="idCodigoCategoria" ColumnName="idCodigoCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="carpetas">
+            <EntityTypeMapping TypeName="BBDDModel.carpetas">
+              <MappingFragment StoreEntitySet="carpetas">
+                <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+                <ScalarProperty Name="fk_IdUsuario" ColumnName="fk_IdUsuario" />
+                <ScalarProperty Name="fk_IdCarpetaPadre" ColumnName="fk_IdCarpetaPadre" />
+                <ScalarProperty Name="nombreCarpeta" ColumnName="nombreCarpeta" />
+                <ScalarProperty Name="idCarpeta" ColumnName="idCarpeta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notas">
+            <EntityTypeMapping TypeName="BBDDModel.notas">
+              <MappingFragment StoreEntitySet="notas">
+                <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="fk_idUsuario" ColumnName="fk_idUsuario" />
+                <ScalarProperty Name="idNota" ColumnName="idNota" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="BBDDModel.usuarios">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="pswdCorreo" ColumnName="pswdCorreo" />
+                <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+                <ScalarProperty Name="fk_IdDepartamento" ColumnName="fk_IdDepartamento" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ultimo_inicio">
+            <EntityTypeMapping TypeName="BBDDModel.ultimo_inicio">
+              <MappingFragment StoreEntitySet="ultimo-inicio">
+                <ScalarProperty Name="fk_idUsuario" ColumnName="fk_idUsuario" />
+                <ScalarProperty Name="nombreOrdenador" ColumnName="nombreOrdenador" />
+                <ScalarProperty Name="idOrdenador" ColumnName="idOrdenador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="carpetas_contrasenas">
+            <EntityTypeMapping TypeName="BBDDModel.carpetas_contrasenas">
+              <MappingFragment StoreEntitySet="carpetas-contrasenas">
+                <ScalarProperty Name="fk_idUsuario" ColumnName="fk_idUsuario" />
+                <ScalarProperty Name="fk_idCarpetaPadre" ColumnName="fk_idCarpetaPadre" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idCarpeta" ColumnName="idCarpeta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notas_compartidas">
+            <EntityTypeMapping TypeName="BBDDModel.notas_compartidas">
+              <MappingFragment StoreEntitySet="notas-compartidas">
+                <ScalarProperty Name="fk_idPropietario" ColumnName="fk_idPropietario" />
+                <ScalarProperty Name="fk_idUsuario" ColumnName="fk_idUsuario" />
+                <ScalarProperty Name="fk_idNota" ColumnName="fk_idNota" />
+                <ScalarProperty Name="idNotaCompartida" ColumnName="idNotaCompartida" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contrasenas">
+            <EntityTypeMapping TypeName="BBDDModel.contrasenas">
+              <MappingFragment StoreEntitySet="contrasenas">
+                <ScalarProperty Name="Favorita" ColumnName="Favorita" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="fk_idCarpeta" ColumnName="fk_idCarpeta" />
+                <ScalarProperty Name="fk_idUsuario" ColumnName="fk_idUsuario" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="idContrasena" ColumnName="idContrasena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grupo">
+            <EntityTypeMapping TypeName="BBDDModel.Grupo">
+              <MappingFragment StoreEntitySet="Grupo">
+                <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="NombreGrupo" ColumnName="NombreGrupo" />
+                <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GrupoUsuario">
+            <EntityTypeMapping TypeName="BBDDModel.GrupoUsuario">
+              <MappingFragment StoreEntitySet="GrupoUsuario">
+                <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+                <ScalarProperty Name="idGrupoUsuario" ColumnName="idGrupoUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PasswordDepartamento">
+            <EntityTypeMapping TypeName="BBDDModel.PasswordDepartamento">
+              <MappingFragment StoreEntitySet="PasswordDepartamento">
+                <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="idDepartamento" ColumnName="idDepartamento" />
+                <ScalarProperty Name="idPassword" ColumnName="idPassword" />
+                <ScalarProperty Name="idPasswordDepartamento" ColumnName="idPasswordDepartamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PasswordGrupo">
+            <EntityTypeMapping TypeName="BBDDModel.PasswordGrupo">
+              <MappingFragment StoreEntitySet="PasswordGrupo">
+                <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+                <ScalarProperty Name="idPassword" ColumnName="idPassword" />
+                <ScalarProperty Name="idPasswordGrupo" ColumnName="idPasswordGrupo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PasswordUsuario">
+            <EntityTypeMapping TypeName="BBDDModel.PasswordUsuario">
+              <MappingFragment StoreEntitySet="PasswordUsuario">
+                <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idPassword" ColumnName="idPassword" />
+                <ScalarProperty Name="idPasswordUsuario" ColumnName="idPasswordUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Query_VerPasswordCompartidas" FunctionName="BBDDModel.Store.Query_VerPasswordCompartidas" />
+          <EntitySetMapping Name="HerramientaExterna">
+            <EntityTypeMapping TypeName="BBDDModel.HerramientaExterna">
+              <MappingFragment StoreEntitySet="HerramientaExterna">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="PathHerramienta" ColumnName="PathHerramienta" />
+                <ScalarProperty Name="UsuarioOrdenador" ColumnName="UsuarioOrdenador" />
+                <ScalarProperty Name="fk_idUsuario" ColumnName="fk_idUsuario" />
+                <ScalarProperty Name="HerramientaExterna1" ColumnName="HerramientaExterna" />
+                <ScalarProperty Name="idHerramientaExterna" ColumnName="idHerramientaExterna" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8BA4059E-3F97-425F-8897-EA42563C9EDD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MiniGestorCodigo.UI</RootNamespace>
+    <AssemblyName>MiniGestorCodigo.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\dllsComunes\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="HerramientaMoverArchivos">
+      <HintPath>..\..\..\Users\Andres\source\repos\HerramientaMoverArchivos\HerramientaMoverArchivos\bin\Debug\HerramientaMoverArchivos.exe</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Shared.v12.2, Version=12.2.20122.2123, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.Misc.v12.2, Version=12.2.20122.2123, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinTabbedMdi.v12.2, Version=12.2.20122.2123, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.v12.2, Version=12.2.20122.2123, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="Utilities.Clases, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Users\Andres\source\repos\Utilities\dllsComunes\Utilities.Clases.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilities.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Users\Andres\source\repos\Utilities\dllsComunes\Utilities.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilities.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Users\Andres\source\repos\Utilities\dllsComunes\Utilities.Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GestorCodigo\frmAddCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestorCodigo\frmAddCategoria.Designer.cs">
+      <DependentUpon>frmAddCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestorContrasenas\cPassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GestorContrasenas\cPassword.Designer.cs">
+      <DependentUpon>cPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestorGrupos\frmGestorGrupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestorGrupos\frmGestorGrupos.Designer.cs">
+      <DependentUpon>frmGestorGrupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestorUsuarios\frmCambiarPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestorUsuarios\frmCambiarPassword.Designer.cs">
+      <DependentUpon>frmCambiarPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestorNotas\frmCompartirNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestorNotas\frmCompartirNota.Designer.cs">
+      <DependentUpon>frmCompartirNota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestorContrasenas\frmContrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestorContrasenas\frmContrasena.Designer.cs">
+      <DependentUpon>frmContrasena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Correo\frmCorreo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Correo\frmCorreo.Designer.cs">
+      <DependentUpon>frmCorreo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestorContrasenas\frmGestorContrasenas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestorContrasenas\frmGestorContrasenas.Designer.cs">
+      <DependentUpon>frmGestorContrasenas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestorNotas\frmGrestorNotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestorNotas\frmGrestorNotas.Designer.cs">
+      <DependentUpon>frmGrestorNotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestorCodigo\frmAddCarpeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestorCodigo\frmAddCarpeta.Designer.cs">
+      <DependentUpon>frmAddCarpeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestorUsuarios\frmAddUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestorUsuarios\frmAddUsuario.Designer.cs">
+      <DependentUpon>frmAddUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestorCodigo\cCodigo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GestorCodigo\cCodigo.Designer.cs">
+      <DependentUpon>cCodigo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatoNodo.cs" />
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestorUsuarios\frmLoggin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestorUsuarios\frmLoggin.Designer.cs">
+      <DependentUpon>frmLoggin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestorNotas\frmNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestorNotas\frmNota.Designer.cs">
+      <DependentUpon>frmNota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestorUsuarios\frmGestorUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestorUsuarios\frmGestorUsuarios.Designer.cs">
+      <DependentUpon>frmGestorUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Herramientas\Controles\frmEncriptarPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Herramientas\Controles\frmEncriptarPassword.Designer.cs">
+      <DependentUpon>frmEncriptarPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Herramientas\Controles\frmHerramientaExterna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Herramientas\Controles\frmHerramientaExterna.Designer.cs">
+      <DependentUpon>frmHerramientaExterna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Herramientas\Controles\frmMoverArchivos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Herramientas\Controles\frmMoverArchivos.Designer.cs">
+      <DependentUpon>frmMoverArchivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Herramientas\Controles\frmSeparadorTexto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Herramientas\Controles\frmSeparadorTexto.Designer.cs">
+      <DependentUpon>frmSeparadorTexto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="GestorCodigo\frmGestorCodigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestorCodigo\frmGestorCodigo.Designer.cs">
+      <DependentUpon>frmGestorCodigo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GestorCodigo\frmAddCarpeta.resx">
+      <DependentUpon>frmAddCarpeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestorCodigo\frmAddCategoria.resx">
+      <DependentUpon>frmAddCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestorContrasenas\cPassword.resx">
+      <DependentUpon>cPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestorGrupos\frmGestorGrupos.resx">
+      <DependentUpon>frmGestorGrupos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestorUsuarios\frmAddUsuario.resx">
+      <DependentUpon>frmAddUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestorCodigo\cCodigo.resx">
+      <DependentUpon>cCodigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestorUsuarios\frmCambiarPassword.resx">
+      <DependentUpon>frmCambiarPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestorNotas\frmCompartirNota.resx">
+      <DependentUpon>frmCompartirNota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestorContrasenas\frmContrasena.resx">
+      <DependentUpon>frmContrasena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Correo\frmCorreo.resx">
+      <DependentUpon>frmCorreo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestorContrasenas\frmGestorContrasenas.resx">
+      <DependentUpon>frmGestorContrasenas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestorNotas\frmGrestorNotas.resx">
+      <DependentUpon>frmGrestorNotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestorUsuarios\frmLoggin.resx">
+      <DependentUpon>frmLoggin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestorCodigo\frmGestorCodigo.resx">
+      <DependentUpon>frmGestorCodigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestorNotas\frmNota.resx">
+      <DependentUpon>frmNota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestorUsuarios\frmGestorUsuarios.resx">
+      <DependentUpon>frmGestorUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Herramientas\Controles\frmEncriptarPassword.resx">
+      <DependentUpon>frmEncriptarPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Herramientas\Controles\frmHerramientaExterna.resx">
+      <DependentUpon>frmHerramientaExterna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Herramientas\Controles\frmMoverArchivos.resx">
+      <DependentUpon>frmMoverArchivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Herramientas\Controles\frmSeparadorTexto.resx">
+      <DependentUpon>frmSeparadorTexto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MiniGestorCodigo.BL\MiniGestorCodigo.BL.csproj">
+      <Project>{b7b83b6f-889a-42c2-84d8-afbe1b43cf23}</Project>
+      <Name>MiniGestorCodigo.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MiniGestorCodigo.DM\MiniGestorCodigo.DM.csproj">
+      <Project>{faf3ce93-0bb7-48a9-8619-d9f551c99b39}</Project>
+      <Name>MiniGestorCodigo.DM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disk_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documents_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail_forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail_attachment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gear_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\safe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key1_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key1_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key1_preferences.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_exchange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\binoculares%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ocultar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visibilidad%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ocultar%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ocultar%282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grupo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarios-multiples-en-silueta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reunion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grupo%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FavoritoSi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FavoritoNo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer-support.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\windows.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
