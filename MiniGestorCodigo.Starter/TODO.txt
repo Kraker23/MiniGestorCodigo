@@ -1,0 +1,14 @@
+﻿
+MEJORAS Gestor
+
+
+Gestor Contraseñas
+- Añadir bton de copiar al lado de contraseña
+- cuando creas nueva contraseña que se gestione bien, porque si le das otra vez, te la duplica.
+- el boton de ver contraseña no esta bien implementado
+- añadirle el generador de contraseña
+
+
+
+-Gestion de permisos para ver quien puede ver que cosas
+

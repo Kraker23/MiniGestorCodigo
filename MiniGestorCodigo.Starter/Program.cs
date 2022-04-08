@@ -38,8 +38,8 @@ namespace MiniGestorCodigo.Starter
             {
                 ultimo_inicio last = gUltimoInicio.getUltimoInicioByNombreOrdenador(Environment.MachineName);
 
-                 //frmlog = new frmLoggin(last.fk_idUsuario);
-               frmlog = new frmLoggin(last.fk_idUsuario,"1234");
+                frmlog = new frmLoggin(last.fk_idUsuario);
+               //frmlog = new frmLoggin(last.fk_idUsuario,"1234");
                 registro = false;
             }
 
