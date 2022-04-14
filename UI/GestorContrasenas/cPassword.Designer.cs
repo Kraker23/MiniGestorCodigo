@@ -43,6 +43,8 @@
             this.lbNombre = new System.Windows.Forms.Label();
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.txtNombreContrasena = new System.Windows.Forms.TextBox();
+            this.btClipBoard = new System.Windows.Forms.Button();
+            this.btGenerarPassword = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btFavorita
@@ -96,7 +98,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(139, 180);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(265, 121);
+            this.txtDescripcion.Size = new System.Drawing.Size(292, 121);
             this.txtDescripcion.TabIndex = 112;
             // 
             // txtUsuario
@@ -105,7 +107,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUsuario.Location = new System.Drawing.Point(139, 37);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(265, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(292, 20);
             this.txtUsuario.TabIndex = 110;
             this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
@@ -145,7 +147,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(191, 315);
+            this.btnAceptar.Location = new System.Drawing.Point(218, 315);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(87, 23);
             this.btnAceptar.TabIndex = 113;
@@ -157,7 +159,7 @@
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(321, 315);
+            this.btnExit.Location = new System.Drawing.Point(348, 315);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(83, 23);
             this.btnExit.TabIndex = 114;
@@ -193,7 +195,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtContrasena.Location = new System.Drawing.Point(139, 66);
             this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(265, 20);
+            this.txtContrasena.Size = new System.Drawing.Size(214, 20);
             this.txtContrasena.TabIndex = 111;
             // 
             // txtNombreContrasena
@@ -202,13 +204,37 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombreContrasena.Location = new System.Drawing.Point(139, 11);
             this.txtNombreContrasena.Name = "txtNombreContrasena";
-            this.txtNombreContrasena.Size = new System.Drawing.Size(265, 20);
+            this.txtNombreContrasena.Size = new System.Drawing.Size(292, 20);
             this.txtNombreContrasena.TabIndex = 109;
+            // 
+            // btClipBoard
+            // 
+            this.btClipBoard.Image = global::MiniGestorCodigo.UI.Properties.Resources.clipboard;
+            this.btClipBoard.Location = new System.Drawing.Point(359, 59);
+            this.btClipBoard.Name = "btClipBoard";
+            this.btClipBoard.Size = new System.Drawing.Size(32, 32);
+            this.btClipBoard.TabIndex = 124;
+            this.btClipBoard.TabStop = false;
+            this.btClipBoard.UseVisualStyleBackColor = true;
+            this.btClipBoard.Click += new System.EventHandler(this.btClipBoard_Click);
+            // 
+            // btGenerarPassword
+            // 
+            this.btGenerarPassword.Image = global::MiniGestorCodigo.UI.Properties.Resources.gear_add1;
+            this.btGenerarPassword.Location = new System.Drawing.Point(399, 59);
+            this.btGenerarPassword.Name = "btGenerarPassword";
+            this.btGenerarPassword.Size = new System.Drawing.Size(32, 32);
+            this.btGenerarPassword.TabIndex = 125;
+            this.btGenerarPassword.TabStop = false;
+            this.btGenerarPassword.UseVisualStyleBackColor = true;
+            this.btGenerarPassword.Click += new System.EventHandler(this.btGenerarPassword_Click);
             // 
             // cPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btGenerarPassword);
+            this.Controls.Add(this.btClipBoard);
             this.Controls.Add(this.btFavorita);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -225,7 +251,7 @@
             this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.txtNombreContrasena);
             this.Name = "cPassword";
-            this.Size = new System.Drawing.Size(429, 389);
+            this.Size = new System.Drawing.Size(456, 389);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,5 +274,7 @@
         private System.Windows.Forms.Label lbNombre;
         private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.TextBox txtNombreContrasena;
+        private System.Windows.Forms.Button btClipBoard;
+        private System.Windows.Forms.Button btGenerarPassword;
     }
 }

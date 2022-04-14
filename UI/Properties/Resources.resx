@@ -118,11 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="contract" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\contract.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="warning1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\warning1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mail_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mail_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mail_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mail_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,14 +139,17 @@
   <data name="folder_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="warning1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\warning1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="document_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\document_new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="visibilidad(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\visibilidad(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="disk_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\disk_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="contract" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\contract.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FavoritoSi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FavoritoSi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,6 +175,9 @@
   <data name="ocultar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ocultar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="disk_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\disk_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="mail_attachment" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mail_attachment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -184,14 +187,14 @@
   <data name="key1_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\key1_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="windows" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\windows.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="reunion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\reunion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="document_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\document_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mail_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mail_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="safe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\safe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -256,7 +259,7 @@
   <data name="document_refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\document_refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="windows" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\windows.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gear_add1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gear_add1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

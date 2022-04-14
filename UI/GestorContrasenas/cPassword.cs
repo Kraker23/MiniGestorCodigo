@@ -566,5 +566,20 @@ namespace MiniGestorCodigo.UI.GestorContrasenas
             }
             btnMostrar.Enabled = true;
         }
+
+        private void btClipBoard_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtContrasena.Text))
+            {
+                Clipboard.SetText(txtContrasena.Text);
+            }
+        }
+
+        private void btGenerarPassword_Click(object sender, EventArgs e)
+        {
+            //TODO : crear autogenerador de password
+            frmGeneradorPassword frm = new frmGeneradorPassword();
+            frm.ShowDialog();
+        }
     }
 }
