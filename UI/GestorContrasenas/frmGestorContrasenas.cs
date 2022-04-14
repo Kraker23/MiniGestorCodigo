@@ -932,6 +932,7 @@ namespace MiniGestorCodigo.UI
                 //cMenuArbol.Items.Add(t); cMenuArbol.Refresh(); cMenuArbol.Update();
                 cMenuArbol.Items["miModificarContraseña"].Visible = true;
                 cMenuArbol.Items["miModificarCarpeta"].Visible = false;
+                cMenuArbol.Items["miVerContraseña"].Visible = false;
             }
 
             else if (nodo.Level == TreeLevelContras.Carpeta ||
@@ -947,12 +948,14 @@ namespace MiniGestorCodigo.UI
                 //cMenuArbol.Items.Add(t); cMenuArbol.Refresh(); cMenuArbol.Update(); 
                 cMenuArbol.Items["miModificarContraseña"].Visible = false;
                 cMenuArbol.Items["miModificarCarpeta"].Visible = true;
+                cMenuArbol.Items["miVerContraseña"].Visible = false;
             }
             else
             {
                 //cMenuArbol.Items.Clear(); cMenuArbol.Refresh(); cMenuArbol.Update();
                 cMenuArbol.Items["miModificarContraseña"].Visible = false;
                 cMenuArbol.Items["miModificarCarpeta"].Visible = false;
+                cMenuArbol.Items["miVerContraseña"].Visible = true;
             }
         }
 
@@ -975,6 +978,19 @@ namespace MiniGestorCodigo.UI
             if (e.Button == MouseButtons.Right)
             {
                 tsbContrasenas.SelectedNode = e.Node;
+            }
+        }
+
+        private void miVerContraseña_Click(object sender, EventArgs e)
+        {
+            DatoNodoPass nodo = (DatoNodoPass)getNodoActual().Tag;
+
+            if (nodo.Level == TreeLevelContras.ComPass)
+            {
+                cPassword pass = new cPassword(nodo.id, false);
+                pass.actualizarArbol += generarArbolContrasenas_v2;
+                pass.CerrarVentana += Pass_CerrarVentana;
+                C_CargarPassword(pass, nodo.Nombre);
             }
         }
     }

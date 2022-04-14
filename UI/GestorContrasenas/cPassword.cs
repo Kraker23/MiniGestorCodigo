@@ -120,7 +120,11 @@ namespace MiniGestorCodigo.UI.GestorContrasenas
 
             }
             btnExit.Text = "Cerrar";
+
+            GestionarVisibilidad(mod);
         }
+
+       
 
         // Constructor para añadir contraseñas desde el context menu del icono de la app en la barra de notificaciones
         public cPassword()
@@ -252,6 +256,20 @@ namespace MiniGestorCodigo.UI.GestorContrasenas
                 this.btFavorita.Image = global::MiniGestorCodigo.UI.Properties.Resources.FavoritoSi;
             }
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            CerrarVentana?.Invoke(nombreAntiguo);
+            //if (idContrasena==-1)
+            //{
+            //    CerrarVentana?.Invoke("Nueva Password");
+            //}
+            //else
+            //{
+            //    CerrarVentana?.Invoke(nombreAntiguo);
+            //}
+        }
+
 
         #endregion
 
@@ -540,17 +558,13 @@ namespace MiniGestorCodigo.UI.GestorContrasenas
         }
         #endregion
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void GestionarVisibilidad(bool mod)
         {
-            CerrarVentana?.Invoke(nombreAntiguo);
-            //if (idContrasena==-1)
-            //{
-            //    CerrarVentana?.Invoke("Nueva Password");
-            //}
-            //else
-            //{
-            //    CerrarVentana?.Invoke(nombreAntiguo);
-            //}
+            foreach (Control control in this.Controls)
+            {
+                control.Enabled = mod;
+            }
+            btnMostrar.Enabled = true;
         }
     }
 }
