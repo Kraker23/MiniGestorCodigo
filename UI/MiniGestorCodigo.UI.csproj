@@ -94,6 +94,13 @@
     <Compile Include="GestorContrasenas\cPassword.Designer.cs">
       <DependentUpon>cPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestorContrasenas\frmGeneradorPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestorContrasenas\frmGeneradorPassword.Designer.cs">
+      <DependentUpon>frmGeneradorPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestorContrasenas\GeneradorPassword.cs" />
     <Compile Include="GestorGrupos\frmGestorGrupos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestorContrasenas\cPassword.resx">
       <DependentUpon>cPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestorContrasenas\frmGeneradorPassword.resx">
+      <DependentUpon>frmGeneradorPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestorGrupos\frmGestorGrupos.resx">
       <DependentUpon>frmGestorGrupos.cs</DependentUpon>
@@ -449,6 +459,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\windows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closeTab.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseTab.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

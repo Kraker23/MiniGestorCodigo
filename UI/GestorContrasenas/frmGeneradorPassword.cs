@@ -14,6 +14,8 @@ namespace MiniGestorCodigo.UI.GestorContrasenas
     {
 
         GeneradorPassword generador = new GeneradorPassword();
+        private string pass;
+        public string passGenerada;
         public frmGeneradorPassword()
         {
             InitializeComponent();
@@ -26,10 +28,27 @@ namespace MiniGestorCodigo.UI.GestorContrasenas
 
         private void btGenerar_Click(object sender, EventArgs e)
         {
-            string pass;
             pass = generador.generar(trackBar.Value, chkSimbolos.Checked, chkNumeros.Checked, chkMayusculas.Checked, chkMinusculas.Checked);
 
             txtPassword.Text = pass;
+        }
+
+        private void btAceptar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            passGenerada = pass;
+            this.Close();
+            
+        }
+
+        private void frmGeneradorPassword_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+
+        private void frmGeneradorPassword_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 }

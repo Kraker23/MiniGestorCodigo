@@ -209,6 +209,7 @@
             // 
             // btClipBoard
             // 
+            this.btClipBoard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btClipBoard.Image = global::MiniGestorCodigo.UI.Properties.Resources.clipboard;
             this.btClipBoard.Location = new System.Drawing.Point(359, 59);
             this.btClipBoard.Name = "btClipBoard";
@@ -220,6 +221,7 @@
             // 
             // btGenerarPassword
             // 
+            this.btGenerarPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btGenerarPassword.Image = global::MiniGestorCodigo.UI.Properties.Resources.gear_add1;
             this.btGenerarPassword.Location = new System.Drawing.Point(399, 59);
             this.btGenerarPassword.Name = "btGenerarPassword";
@@ -252,6 +254,7 @@
             this.Controls.Add(this.txtNombreContrasena);
             this.Name = "cPassword";
             this.Size = new System.Drawing.Size(456, 389);
+            this.Load += new System.EventHandler(this.cPassword_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

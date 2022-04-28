@@ -105,6 +105,11 @@ namespace MiniGestorCodigo.UI
             }
         }
 
-        
+        private void frmLoggin_Shown(object sender, EventArgs e)
+        {
+
+
+            txtContrasena.Focus();
+        }
     }
 }

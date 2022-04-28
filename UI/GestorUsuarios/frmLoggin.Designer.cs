@@ -109,6 +109,7 @@
             this.Text = "Iniciar sesion";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmLoggin_Load);
+            this.Shown += new System.EventHandler(this.frmLoggin_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

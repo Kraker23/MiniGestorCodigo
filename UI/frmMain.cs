@@ -372,10 +372,16 @@ namespace MiniGestorCodigo.UI
         private void CrearNuevaContrasena(object sender, EventArgs e)
         {
             Form f = new Form();
+
+            f.StartPosition = FormStartPosition.CenterScreen;
             cPassword c = new cPassword();
             f.Dock = DockStyle.Fill;
             f.Controls.Add(c);
-            f.Size = new Size(429, 389);
+            f.Size = new Size(450, 389);
+            f.MinimumSize = f.Size;
+            f.MaximumSize = f.Size;
+            f.MaximizeBox = false;
+            f.BringToFront();            
             f.Text = "Nueva contraseña";
             f.ShowDialog();
             //frmContrasena frm = new frmContrasena();

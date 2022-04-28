@@ -31,6 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestorContrasenas));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tsbContrasenas = new System.Windows.Forms.TreeView();
+            this.cMenuArbol = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.miModificarCarpeta = new System.Windows.Forms.ToolStripMenuItem();
+            this.miModificarContraseña = new System.Windows.Forms.ToolStripMenuItem();
+            this.miVerContraseña = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPasswords = new System.Windows.Forms.TabControl();
             this.tsbAddContrasena = new System.Windows.Forms.ToolStripButton();
             this.tsbModContrasena = new System.Windows.Forms.ToolStripButton();
             this.tsbDellContrasena = new System.Windows.Forms.ToolStripButton();
@@ -38,13 +45,6 @@
             this.tsbModCarpeta = new System.Windows.Forms.ToolStripButton();
             this.tsbDellCarpeta = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.tsbContrasenas = new System.Windows.Forms.TreeView();
-            this.cMenuArbol = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.miModificarCarpeta = new System.Windows.Forms.ToolStripMenuItem();
-            this.miModificarContraseña = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabPasswords = new System.Windows.Forms.TabControl();
-            this.miVerContraseña = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -68,6 +68,80 @@
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 25);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.tsbContrasenas);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.tabPasswords);
+            this.splitContainer1.Size = new System.Drawing.Size(800, 425);
+            this.splitContainer1.SplitterDistance = 266;
+            this.splitContainer1.TabIndex = 1;
+            // 
+            // tsbContrasenas
+            // 
+            this.tsbContrasenas.ContextMenuStrip = this.cMenuArbol;
+            this.tsbContrasenas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tsbContrasenas.Location = new System.Drawing.Point(0, 0);
+            this.tsbContrasenas.Name = "tsbContrasenas";
+            this.tsbContrasenas.Size = new System.Drawing.Size(266, 425);
+            this.tsbContrasenas.TabIndex = 0;
+            this.tsbContrasenas.BeforeCollapse += new System.Windows.Forms.TreeViewCancelEventHandler(this.tsbContrasenas_BeforeCollapse);
+            this.tsbContrasenas.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.tsbContrasenas_BeforeExpand);
+            this.tsbContrasenas.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tsbContrasenas_NodeMouseClick);
+            this.tsbContrasenas.Click += new System.EventHandler(this.tsbContrasenas_Click);
+            this.tsbContrasenas.DoubleClick += new System.EventHandler(this.tsbContrasenas_DoubleClick);
+            this.tsbContrasenas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tsbContrasenas_MouseDown);
+            // 
+            // cMenuArbol
+            // 
+            this.cMenuArbol.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miModificarCarpeta,
+            this.miModificarContraseña,
+            this.miVerContraseña});
+            this.cMenuArbol.Name = "cMenuArbol";
+            this.cMenuArbol.Size = new System.Drawing.Size(189, 70);
+            this.cMenuArbol.Opening += new System.ComponentModel.CancelEventHandler(this.cMenuArbol_Opening);
+            // 
+            // miModificarCarpeta
+            // 
+            this.miModificarCarpeta.Name = "miModificarCarpeta";
+            this.miModificarCarpeta.Size = new System.Drawing.Size(188, 22);
+            this.miModificarCarpeta.Text = "Modificar Carpeta";
+            this.miModificarCarpeta.Click += new System.EventHandler(this.tsbModCarpeta_Click);
+            // 
+            // miModificarContraseña
+            // 
+            this.miModificarContraseña.Name = "miModificarContraseña";
+            this.miModificarContraseña.Size = new System.Drawing.Size(188, 22);
+            this.miModificarContraseña.Text = "Modificar Contraseña";
+            this.miModificarContraseña.Click += new System.EventHandler(this.tsbModContrasena_Click);
+            // 
+            // miVerContraseña
+            // 
+            this.miVerContraseña.Name = "miVerContraseña";
+            this.miVerContraseña.Size = new System.Drawing.Size(188, 22);
+            this.miVerContraseña.Text = "Ver Contraseña";
+            this.miVerContraseña.Click += new System.EventHandler(this.miVerContraseña_Click);
+            // 
+            // tabPasswords
+            // 
+            this.tabPasswords.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabPasswords.Location = new System.Drawing.Point(0, 0);
+            this.tabPasswords.Name = "tabPasswords";
+            this.tabPasswords.SelectedIndex = 0;
+            this.tabPasswords.Size = new System.Drawing.Size(530, 425);
+            this.tabPasswords.TabIndex = 0;
+            this.tabPasswords.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabPasswords_DrawItem);
+            this.tabPasswords.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabPasswords_MouseDown);
             // 
             // tsbAddContrasena
             // 
@@ -139,78 +213,6 @@
             this.toolStripButton1.Text = "Actualizar lista contraseñas";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 25);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.tsbContrasenas);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.tabPasswords);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 425);
-            this.splitContainer1.SplitterDistance = 266;
-            this.splitContainer1.TabIndex = 1;
-            // 
-            // tsbContrasenas
-            // 
-            this.tsbContrasenas.ContextMenuStrip = this.cMenuArbol;
-            this.tsbContrasenas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tsbContrasenas.Location = new System.Drawing.Point(0, 0);
-            this.tsbContrasenas.Name = "tsbContrasenas";
-            this.tsbContrasenas.Size = new System.Drawing.Size(266, 425);
-            this.tsbContrasenas.TabIndex = 0;
-            this.tsbContrasenas.BeforeCollapse += new System.Windows.Forms.TreeViewCancelEventHandler(this.tsbContrasenas_BeforeCollapse);
-            this.tsbContrasenas.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.tsbContrasenas_BeforeExpand);
-            this.tsbContrasenas.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tsbContrasenas_NodeMouseClick);
-            this.tsbContrasenas.Click += new System.EventHandler(this.tsbContrasenas_Click);
-            this.tsbContrasenas.DoubleClick += new System.EventHandler(this.tsbContrasenas_DoubleClick);
-            this.tsbContrasenas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tsbContrasenas_MouseDown);
-            // 
-            // cMenuArbol
-            // 
-            this.cMenuArbol.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miModificarCarpeta,
-            this.miModificarContraseña,
-            this.miVerContraseña});
-            this.cMenuArbol.Name = "cMenuArbol";
-            this.cMenuArbol.Size = new System.Drawing.Size(189, 92);
-            this.cMenuArbol.Opening += new System.ComponentModel.CancelEventHandler(this.cMenuArbol_Opening);
-            // 
-            // miModificarCarpeta
-            // 
-            this.miModificarCarpeta.Name = "miModificarCarpeta";
-            this.miModificarCarpeta.Size = new System.Drawing.Size(188, 22);
-            this.miModificarCarpeta.Text = "Modificar Carpeta";
-            this.miModificarCarpeta.Click += new System.EventHandler(this.tsbModCarpeta_Click);
-            // 
-            // miModificarContraseña
-            // 
-            this.miModificarContraseña.Name = "miModificarContraseña";
-            this.miModificarContraseña.Size = new System.Drawing.Size(188, 22);
-            this.miModificarContraseña.Text = "Modificar Contraseña";
-            this.miModificarContraseña.Click += new System.EventHandler(this.tsbModContrasena_Click);
-            // 
-            // tabPasswords
-            // 
-            this.tabPasswords.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabPasswords.Location = new System.Drawing.Point(0, 0);
-            this.tabPasswords.Name = "tabPasswords";
-            this.tabPasswords.SelectedIndex = 0;
-            this.tabPasswords.Size = new System.Drawing.Size(530, 425);
-            this.tabPasswords.TabIndex = 0;
-            // 
-            // miVerContraseña
-            // 
-            this.miVerContraseña.Name = "miVerContraseña";
-            this.miVerContraseña.Size = new System.Drawing.Size(188, 22);
-            this.miVerContraseña.Text = "Ver Contraseña";
-            this.miVerContraseña.Click += new System.EventHandler(this.miVerContraseña_Click);
-            // 
             // frmGestorContrasenas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +223,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmGestorContrasenas";
             this.Text = "Gestor de contrasenas";
+            this.Load += new System.EventHandler(this.frmGestorContrasenas_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);

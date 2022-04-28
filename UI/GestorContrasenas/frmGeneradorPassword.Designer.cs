@@ -34,9 +34,10 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.chkSimbolos = new System.Windows.Forms.CheckBox();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
-            this.chkNumeros = new System.Windows.Forms.CheckBox();
-            this.chkMayusculas = new System.Windows.Forms.CheckBox();
             this.chkMinusculas = new System.Windows.Forms.CheckBox();
+            this.chkMayusculas = new System.Windows.Forms.CheckBox();
+            this.chkNumeros = new System.Windows.Forms.CheckBox();
+            this.btAceptar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).BeginInit();
             this.gbOpciones.SuspendLayout();
             this.SuspendLayout();
@@ -67,9 +68,9 @@
             // btGenerar
             // 
             this.btGenerar.Image = global::MiniGestorCodigo.UI.Properties.Resources.key1_add;
-            this.btGenerar.Location = new System.Drawing.Point(184, 97);
+            this.btGenerar.Location = new System.Drawing.Point(127, 97);
             this.btGenerar.Name = "btGenerar";
-            this.btGenerar.Size = new System.Drawing.Size(75, 116);
+            this.btGenerar.Size = new System.Drawing.Size(67, 116);
             this.btGenerar.TabIndex = 2;
             this.btGenerar.Text = "Generar";
             this.btGenerar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -80,7 +81,7 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(17, 219);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(242, 20);
+            this.txtPassword.Size = new System.Drawing.Size(249, 20);
             this.txtPassword.TabIndex = 3;
             // 
             // chkSimbolos
@@ -103,34 +104,10 @@
             this.gbOpciones.Controls.Add(this.chkSimbolos);
             this.gbOpciones.Location = new System.Drawing.Point(17, 97);
             this.gbOpciones.Name = "gbOpciones";
-            this.gbOpciones.Size = new System.Drawing.Size(166, 116);
+            this.gbOpciones.Size = new System.Drawing.Size(104, 116);
             this.gbOpciones.TabIndex = 5;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Opciones";
-            // 
-            // chkNumeros
-            // 
-            this.chkNumeros.AutoSize = true;
-            this.chkNumeros.Checked = true;
-            this.chkNumeros.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkNumeros.Location = new System.Drawing.Point(15, 42);
-            this.chkNumeros.Name = "chkNumeros";
-            this.chkNumeros.Size = new System.Drawing.Size(68, 17);
-            this.chkNumeros.TabIndex = 5;
-            this.chkNumeros.Text = "Numeros";
-            this.chkNumeros.UseVisualStyleBackColor = true;
-            // 
-            // chkMayusculas
-            // 
-            this.chkMayusculas.AutoSize = true;
-            this.chkMayusculas.Checked = true;
-            this.chkMayusculas.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkMayusculas.Location = new System.Drawing.Point(15, 65);
-            this.chkMayusculas.Name = "chkMayusculas";
-            this.chkMayusculas.Size = new System.Drawing.Size(82, 17);
-            this.chkMayusculas.TabIndex = 6;
-            this.chkMayusculas.Text = "Mayusculas";
-            this.chkMayusculas.UseVisualStyleBackColor = true;
             // 
             // chkMinusculas
             // 
@@ -144,11 +121,48 @@
             this.chkMinusculas.Text = "Minusculas";
             this.chkMinusculas.UseVisualStyleBackColor = true;
             // 
-            // frmGenerador
+            // chkMayusculas
+            // 
+            this.chkMayusculas.AutoSize = true;
+            this.chkMayusculas.Checked = true;
+            this.chkMayusculas.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkMayusculas.Location = new System.Drawing.Point(15, 65);
+            this.chkMayusculas.Name = "chkMayusculas";
+            this.chkMayusculas.Size = new System.Drawing.Size(82, 17);
+            this.chkMayusculas.TabIndex = 6;
+            this.chkMayusculas.Text = "Mayusculas";
+            this.chkMayusculas.UseVisualStyleBackColor = true;
+            // 
+            // chkNumeros
+            // 
+            this.chkNumeros.AutoSize = true;
+            this.chkNumeros.Checked = true;
+            this.chkNumeros.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkNumeros.Location = new System.Drawing.Point(15, 42);
+            this.chkNumeros.Name = "chkNumeros";
+            this.chkNumeros.Size = new System.Drawing.Size(68, 17);
+            this.chkNumeros.TabIndex = 5;
+            this.chkNumeros.Text = "Numeros";
+            this.chkNumeros.UseVisualStyleBackColor = true;
+            // 
+            // btAceptar
+            // 
+            this.btAceptar.Image = global::MiniGestorCodigo.UI.Properties.Resources.document_out;
+            this.btAceptar.Location = new System.Drawing.Point(200, 97);
+            this.btAceptar.Name = "btAceptar";
+            this.btAceptar.Size = new System.Drawing.Size(66, 116);
+            this.btAceptar.TabIndex = 6;
+            this.btAceptar.Text = "Aceptar";
+            this.btAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btAceptar.UseVisualStyleBackColor = true;
+            this.btAceptar.Click += new System.EventHandler(this.btAceptar_Click);
+            // 
+            // frmGeneradorPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 252);
+            this.Controls.Add(this.btAceptar);
             this.Controls.Add(this.gbOpciones);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.btGenerar);
@@ -157,8 +171,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximumSize = new System.Drawing.Size(298, 291);
             this.MinimumSize = new System.Drawing.Size(298, 291);
-            this.Name = "frmGenerador";
+            this.Name = "frmGeneradorPassword";
             this.Text = "Generador Password";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmGeneradorPassword_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmGeneradorPassword_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).EndInit();
             this.gbOpciones.ResumeLayout(false);
             this.gbOpciones.PerformLayout();
@@ -178,5 +194,6 @@
         private System.Windows.Forms.CheckBox chkMinusculas;
         private System.Windows.Forms.CheckBox chkMayusculas;
         private System.Windows.Forms.CheckBox chkNumeros;
+        private System.Windows.Forms.Button btAceptar;
     }
 }

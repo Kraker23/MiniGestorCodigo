@@ -59,6 +59,7 @@ namespace MiniGestorCodigo.UI.GestorContrasenas
             InitializeComponent();
 
             this.idPadre = idPadre;
+            updateArbolContrasenas = true;
 
             List<PasswordGrupo> PasswordGrupo = new List<PasswordGrupo>();
             List<PasswordUsuario> PasswordUsuario = new List<PasswordUsuario>();
@@ -72,12 +73,14 @@ namespace MiniGestorCodigo.UI.GestorContrasenas
             CrearBTUsuarios();
             CrearBTGrupos();
             btnExit.Text = "Cancelar";
+            GestionarVisibilidadContraseña();
         }
 
 
         public cPassword(int idContrasena, bool mod)
         {
             InitializeComponent();
+            updateArbolContrasenas = true;
 
             // Ocultar contraseña
             txtContrasena.UseSystemPasswordChar = true;
@@ -122,6 +125,7 @@ namespace MiniGestorCodigo.UI.GestorContrasenas
             btnExit.Text = "Cerrar";
 
             GestionarVisibilidad(mod);
+            GestionarVisibilidadContraseña();
         }
 
        
@@ -130,7 +134,7 @@ namespace MiniGestorCodigo.UI.GestorContrasenas
         public cPassword()
         {
             InitializeComponent();
-            updateArbolContrasenas = false;
+            updateArbolContrasenas = true;
 
 
             List<PasswordGrupo> PasswordGrupo = new List<PasswordGrupo>();
@@ -143,6 +147,7 @@ namespace MiniGestorCodigo.UI.GestorContrasenas
             CrearBTUsuarios();
             CrearBTGrupos();
             btnExit.Text = "Cancelar";
+            GestionarVisibilidadContraseña();
         }
 
         #endregion
@@ -151,11 +156,21 @@ namespace MiniGestorCodigo.UI.GestorContrasenas
 
 
         #region Eventos
+
+        private void cPassword_Load(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNombreContrasena.Text))
+            {
+                txtNombreContrasena.Focus();
+            }
+        }
         // Mostrar u ocultar contraseña
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             contrasenaVisible = !contrasenaVisible;
 
+            GestionarVisibilidadContraseña();
+            /*
             txtContrasena.UseSystemPasswordChar = !contrasenaVisible;
             if (!contrasenaVisible)
             {
@@ -164,10 +179,10 @@ namespace MiniGestorCodigo.UI.GestorContrasenas
             else
             {
                 this.btnMostrar.Image = global::MiniGestorCodigo.UI.Properties.Resources.ocultar_2_;
-            }
+            }*/
 
         }
-
+        
 
         // Guardar contraseña
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -565,6 +580,21 @@ namespace MiniGestorCodigo.UI.GestorContrasenas
                 control.Enabled = mod;
             }
             btnMostrar.Enabled = true;
+
+            GestionarVisibilidadContraseña();
+        }
+
+        private void GestionarVisibilidadContraseña()
+        {
+            txtContrasena.UseSystemPasswordChar = !contrasenaVisible;
+            if (!contrasenaVisible)
+            {
+                this.btnMostrar.Image = global::MiniGestorCodigo.UI.Properties.Resources.visibilidad_1_;
+            }
+            else
+            {
+                this.btnMostrar.Image = global::MiniGestorCodigo.UI.Properties.Resources.ocultar_2_;
+            }
         }
 
         private void btClipBoard_Click(object sender, EventArgs e)
@@ -579,7 +609,13 @@ namespace MiniGestorCodigo.UI.GestorContrasenas
         {
             //TODO : crear autogenerador de password
             frmGeneradorPassword frm = new frmGeneradorPassword();
-            frm.ShowDialog();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            if (frm.ShowDialog()==DialogResult.OK)
+            {
+                txtContrasena.Text= frm.passGenerada;
+            }
         }
+
+        
     }
 }

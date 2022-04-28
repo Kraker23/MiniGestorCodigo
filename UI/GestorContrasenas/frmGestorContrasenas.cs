@@ -33,10 +33,10 @@ namespace MiniGestorCodigo.UI
             Carpeta = 2,
             SubCarpetas = 3,
             Pass = 4,
-            Compartida=5,
-            ComCarpeta=6,
-            ComSubCarpeta=7,
-            ComPass=8
+            Compartida = 5,
+            ComCarpeta = 6,
+            ComSubCarpeta = 7,
+            ComPass = 8
 
         }
 
@@ -62,10 +62,10 @@ namespace MiniGestorCodigo.UI
 
         /* Set the index of image from the 
            ImageList for selected and unselected tree nodes.*/
-        public int Usuario  ;
-        public int Compartida ;
-        public int carpeta ;
-        public int pass ;
+        public int Usuario;
+        public int Compartida;
+        public int carpeta;
+        public int pass;
 
         #region constructor
 
@@ -172,7 +172,7 @@ namespace MiniGestorCodigo.UI
 
         private void AbrirExpandidos()
         {
-            
+
             if (nodosExpandidos.HasContent())
             {
                 RecursivoAbrirExpandidos(tsbContrasenas.Nodes);
@@ -187,7 +187,7 @@ namespace MiniGestorCodigo.UI
                 if (nodosExpandidos.Exists(x => x.id == nodoSel.id && x.Level == nodoSel.Level))
                 {
                     node.Expand();
-                    if (node.Nodes.Count>0)
+                    if (node.Nodes.Count > 0)
                     {
                         RecursivoAbrirExpandidos(node.Nodes);
                     }
@@ -214,9 +214,9 @@ namespace MiniGestorCodigo.UI
 
             // Set the TreeView control's default image and selected image indexes.
             tsbContrasenas.ImageIndex = 0;
-           // tsbContrasenas.SelectedImageIndex = 1;
+            // tsbContrasenas.SelectedImageIndex = 1;
 
-           
+
         }
 
         private void CrearArbol()
@@ -267,7 +267,7 @@ namespace MiniGestorCodigo.UI
                 datos.Add(item);
             }
 
-            foreach (contrasenas pswd in ContrasenasCompartidas.Where(x=>x.fk_idCarpeta !=null))
+            foreach (contrasenas pswd in ContrasenasCompartidas.Where(x => x.fk_idCarpeta != null))
             {
                 BuscarCarpetas(pswd.fk_idCarpeta.Value);
             }
@@ -324,7 +324,7 @@ namespace MiniGestorCodigo.UI
                 CarpetasCompartidas.Add(cc);
             }
 
-            if (cc.fk_idCarpetaPadre!=null)
+            if (cc.fk_idCarpetaPadre != null)
             {
                 BuscarCarpetas(cc.fk_idCarpetaPadre.Value);
             }
@@ -359,7 +359,7 @@ namespace MiniGestorCodigo.UI
             }
             else if (nodo.Level == TreeLevelContras.Carpeta || nodo.Level == TreeLevelContras.SubCarpetas)
             {
-                List<DatoNodoPass> carpetas = datos.Where(x => x.idPadre == nodo.id &&( x.Level == TreeLevelContras.Carpeta || x.Level == TreeLevelContras.SubCarpetas) && x != (DatoNodoPass)node.Tag).ToList();
+                List<DatoNodoPass> carpetas = datos.Where(x => x.idPadre == nodo.id && (x.Level == TreeLevelContras.Carpeta || x.Level == TreeLevelContras.SubCarpetas) && x != (DatoNodoPass)node.Tag).ToList();
 
                 TreeNode nodeC;
                 foreach (DatoNodoPass carp in carpetas)
@@ -424,8 +424,8 @@ namespace MiniGestorCodigo.UI
         {
             DatoNodoPass nodo = (DatoNodoPass)node.Tag;
 
-           // if (nodo.Level == TreeLevelContras.Usario && nodo.id==-3)//contraseñasCompartidas
-            if (nodo.Level == TreeLevelContras.Compartida )//contraseñasCompartidas
+            // if (nodo.Level == TreeLevelContras.Usario && nodo.id==-3)//contraseñasCompartidas
+            if (nodo.Level == TreeLevelContras.Compartida)//contraseñasCompartidas
             {
                 List<DatoNodoPass> pasw = datosCompartidos.Where(x => x.idPadre == nodo.id && x.Level == TreeLevelContras.ComPass && x != (DatoNodoPass)node.Tag).ToList();
                 TreeNode nodeC;
@@ -623,7 +623,7 @@ namespace MiniGestorCodigo.UI
                 item.id = pswd.idContrasena;
                 item.Nombre = pswd.nombre;
 
-                
+
                 item.idPadre = pswd.fk_idCarpeta;
 
                 item.Level = TreeLevelContras.Pass;
@@ -662,21 +662,21 @@ namespace MiniGestorCodigo.UI
         {
             /*if (!cargando)
             {*/
-                tsbContrasenas.BeginUpdate();
+            tsbContrasenas.BeginUpdate();
 
 
-                TreeNode node = e.Node;
-                node.Nodes.Clear();
+            TreeNode node = e.Node;
+            node.Nodes.Clear();
 
-                AdministrarExpandidos(node, true);
+            AdministrarExpandidos(node, true);
 
-                /* anadirNodosCarpeta(node);
-                 anadirNodosContrasena(node);*/
-                anadirNodosCarpeta_v2(node);
-                anadirNodosContrasena_v2(node);
+            /* anadirNodosCarpeta(node);
+             anadirNodosContrasena(node);*/
+            anadirNodosCarpeta_v2(node);
+            anadirNodosContrasena_v2(node);
 
-                tsbContrasenas.EndUpdate();
-           // }
+            tsbContrasenas.EndUpdate();
+            // }
         }
 
         private void tsbContrasenas_BeforeCollapse(object sender, TreeViewCancelEventArgs e)
@@ -689,11 +689,11 @@ namespace MiniGestorCodigo.UI
             }
         }
 
-        private void AdministrarExpandidos(TreeNode node,bool expandir)
+        private void AdministrarExpandidos(TreeNode node, bool expandir)
         {
             DatoNodoPass nodoSel = ((DatoNodoPass)node.Tag);
 
-            if (expandir && !nodosExpandidos.Exists(x=>x.id==nodoSel.id && x.Level==nodoSel.Level))
+            if (expandir && !nodosExpandidos.Exists(x => x.id == nodoSel.id && x.Level == nodoSel.Level))
             {
                 nodosExpandidos.Add(nodoSel);
             }
@@ -764,8 +764,17 @@ namespace MiniGestorCodigo.UI
         private void tsbAddContrasena_Click(object sender, EventArgs e)
         {
             DatoNodoPass nodo = (DatoNodoPass)getNodoActual().Tag;
+            if (nodo.Level == TreeLevelContras.Carpeta || nodo.Level == TreeLevelContras.SubCarpetas)
+            {
+                //frmContrasena contrasena = new frmContrasena((int)nodo.idPadre);
+                //contrasena.ShowDialog();
 
-           if (nodo.Level == TreeLevelContras.Pass && nodo.idPadre != null)
+                cPassword pass = new cPassword((int)nodo.id);
+                pass.actualizarArbol += generarArbolContrasenas_v2;
+                pass.CerrarVentana += Pass_CerrarVentana;
+                C_CargarPassword(pass, "Nueva Password");
+            }
+            else if (nodo.Level == TreeLevelContras.Pass && nodo.idPadre != null)
             {
                 //frmContrasena contrasena = new frmContrasena((int)nodo.idPadre);
                 //contrasena.ShowDialog();
@@ -775,18 +784,42 @@ namespace MiniGestorCodigo.UI
                 pass.CerrarVentana += Pass_CerrarVentana;
                 C_CargarPassword(pass, "Nueva Password");
             }
-           else
+            else if (nodo.Level == TreeLevelContras.Usuario)
             {
-                //frmContrasena contrasena = new frmContrasena(nodo.id);
-                //contrasena.actualizarArbol += generarArbolContrasenas_v2;
+                //frmContrasena contrasena = new frmContrasena((int)nodo.idPadre);
                 //contrasena.ShowDialog();
 
-
-                cPassword pass = new cPassword(nodo.id);
-                pass.CerrarVentana += Pass_CerrarVentana;
+                cPassword pass = new cPassword();
                 pass.actualizarArbol += generarArbolContrasenas_v2;
+                pass.CerrarVentana += Pass_CerrarVentana;
                 C_CargarPassword(pass, "Nueva Password");
             }
+            else
+            {
+                MessageBox.Show("La Contraseña solo se puede crear en una carpeta");
+            }
+            /*if (nodo.Level == TreeLevelContras.Pass && nodo.idPadre != null)
+             {
+                 //frmContrasena contrasena = new frmContrasena((int)nodo.idPadre);
+                 //contrasena.ShowDialog();
+
+                 cPassword pass = new cPassword((int)nodo.idPadre);
+                 pass.actualizarArbol += generarArbolContrasenas_v2;
+                 pass.CerrarVentana += Pass_CerrarVentana;
+                 C_CargarPassword(pass, "Nueva Password");
+             }
+            else
+             {
+                 //frmContrasena contrasena = new frmContrasena(nodo.id);
+                 //contrasena.actualizarArbol += generarArbolContrasenas_v2;
+                 //contrasena.ShowDialog();
+
+
+                 cPassword pass = new cPassword(nodo.id);
+                 pass.CerrarVentana += Pass_CerrarVentana;
+                 pass.actualizarArbol += generarArbolContrasenas_v2;
+                 C_CargarPassword(pass, "Nueva Password");
+             }*/
         }
 
         private void Pass_CerrarVentana(string nombrePassword)
@@ -850,7 +883,7 @@ namespace MiniGestorCodigo.UI
         /// <returns> Nodo seleccionado </returns>
         private TreeNode getNodoActual()
         {
-            return tsbContrasenas.SelectedNode;
+            return tsbContrasenas.SelectedNode != null ? tsbContrasenas.SelectedNode : tsbContrasenas.Nodes.Count > 0 ? tsbContrasenas.Nodes[0] : null;
         }
         /// <summary>
         /// Metodo para obtener el nodo seleccionado del arbol
@@ -879,7 +912,7 @@ namespace MiniGestorCodigo.UI
             generarArbolContrasenas_v2();
         }
 
-        
+
         private void C_CargarPassword(cPassword pass, string NombrePassword)
         {
             int pageIndice = -1;
@@ -897,6 +930,7 @@ namespace MiniGestorCodigo.UI
                 TabPage tb = new TabPage();
                 tb.Text = NombrePassword;
                 tb.Tag = NombrePassword;
+                tb.Paint += new PaintEventHandler(tab_OnDrawPage);
 
                 pass.Dock = DockStyle.Fill;
 
@@ -915,7 +949,7 @@ namespace MiniGestorCodigo.UI
 
         }
 
-      
+
         private void cMenuArbol_Opening(object sender, CancelEventArgs e)
         {
             DatoNodoPass nodo = (DatoNodoPass)getNodoActual().Tag;
@@ -992,6 +1026,70 @@ namespace MiniGestorCodigo.UI
                 pass.CerrarVentana += Pass_CerrarVentana;
                 C_CargarPassword(pass, nodo.Nombre);
             }
+        }
+
+        private void tab_OnDrawPage(object sender, PaintEventArgs e)
+        {
+            // e.ClipRectangle.
+            e.Graphics.DrawString("+",
+                                  new Font("verdana",
+                                           10,
+                                           FontStyle.Bold),
+                                  Brushes.Black,
+                                  e.ClipRectangle.X + 10,
+                                  e.ClipRectangle.Y + 10);
+        }
+
+        private void tabPasswords_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (this.tabPasswords.TabPages.Count >=e.Index)
+            {
+                var tabPage = this.tabPasswords.TabPages[e.Index];
+                var tabRect = this.tabPasswords.GetTabRect(e.Index);
+                tabRect.Inflate(-2, -2);
+
+                var closeImage = Properties.Resources.CloseTab;
+                e.Graphics.DrawImage(closeImage,
+                    (tabRect.Right - closeImage.Width),
+                    tabRect.Top + (tabRect.Height - closeImage.Height) / 2);
+                TextRenderer.DrawText(e.Graphics, tabPage.Text, tabPage.Font,
+                    tabRect, tabPage.ForeColor, TextFormatFlags.Left);
+            }
+
+        }
+
+        private void frmGestorContrasenas_Load(object sender, EventArgs e)
+        {
+            this.tabPasswords.Padding = new Point(12, 4);
+            this.tabPasswords.DrawMode = TabDrawMode.OwnerDrawFixed;
+
+            this.tabPasswords.DrawItem += tabPasswords_DrawItem;
+            this.tabPasswords.MouseDown += tabPasswords_MouseDown;
+            //this.tabPasswords.Selecting += tabControl1_Selecting;
+            //this.tabPasswords.HandleCreated += tabControl1_HandleCreated;
+        }
+
+        private void tabPasswords_MouseDown(object sender, MouseEventArgs e)
+        {
+            var lastIndex = this.tabPasswords.TabCount - 1;
+
+            for (var i = 0; i < this.tabPasswords.TabPages.Count; i++)
+            {
+                var tabRect = this.tabPasswords.GetTabRect(i);
+                tabRect.Inflate(-2, -2);
+                var closeImage = Properties.Resources.CloseTab;
+                var imageRect = new Rectangle(
+                    (tabRect.Right - closeImage.Width),
+                    tabRect.Top + (tabRect.Height - closeImage.Height) / 2,
+                    closeImage.Width,
+                    closeImage.Height);
+                if (imageRect.Contains(e.Location))
+                {
+                    this.tabPasswords.TabPages.RemoveAt(i);
+                    break;
+                }
+            }
+
         }
     }
 }
